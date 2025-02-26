@@ -4,7 +4,7 @@ on:
     branches: ['main']
 jobs:
   first-job:
-    runs-on: ubuntu-24.04-arm
+    runs-on: self-hosted
     steps:
       - name: Print Welcome 
         run: echo "welcome to first workflow"        
