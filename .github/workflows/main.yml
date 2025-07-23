@@ -1,10 +1,22 @@
-name: This is my First workflow
-on: push
+ame: First Workflow
+on: workflow_dispatch
 jobs:
   first-job:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
-      - name: print greetings
-        run: echo "Welcome to github workflow"
+      - name: Print greeting
+        run: echo "Hello World!
+      - name: Print goodbye
+        run: echo "Done - bye!"
+  second-job:
+    needs: first-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print greeting
+        run: echo "Hello World!"
+      - name: Print goodbye
+        run: echo "Done - bye!"       
+
+
         
        
