@@ -1,22 +1,15 @@
-name: First Workflow
-on: workflow_dispatch
+name: example-workflow
+on: [push]
 jobs:
-  first-job:
+  production-deploy:
+    if: "contains(github.event.head_commit.message, 'Second Commit')"
     runs-on: ubuntu-latest
     steps:
-      - name: Print greeting
-        run: echo "Hello World!"
-      - name: Print goodbye
-        run: echo "Done - bye!"
-  second-job:
-    needs: first-job
-    runs-on: ubuntu-latest
-    steps:
-      - name: Print greeting
-        run: echo "Hello World!"
-      - name: Print goodbye
-        run: echo "Done - bye!"       
-
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '14'
+      - run: npm install -g bats
 
 
 
