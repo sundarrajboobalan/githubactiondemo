@@ -1,20 +1,23 @@
-name: Scheduled Workflow
-on:
-  schedule:
-    - cron: '00 20 24 7 3' # Runs on 3 PM 45 minutes every day
-
+name: First Workflow
+on: workflow_dispatch
 jobs:
-  build:
+  first-job:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Print greeting
+        run: echo "Hello World!
+      - name: Print goodbye
+        run: echo "Done - bye!"
+  second-job:
+    #needs: first-job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print greeting
+        run: echo "Hello World!"
+      - name: Print goodbye
+        run: echo "Done - bye!"       
 
-      - name: Run tests
-        run: |
-          # Commands to run tests
-       
+
 
 
         
