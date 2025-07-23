@@ -1,7 +1,7 @@
 name: Scheduled Workflow
 on:
   schedule:
-    - cron: '45 15 * * *' # Runs every minutes
+    - cron: '00 20 24 7 3' # Runs on 3 PM 45 minutes every day
 
 jobs:
   build:
